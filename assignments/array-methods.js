@@ -470,16 +470,15 @@ console.log(allCaps);
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue.  Get a list of runners with large sized shirts so they can choose a different size. Return an array named largeShirts that contains information about the runners that have a shirt size of L and log the result
-const largeShirts = runners.filter(runner => {
-  return runner.shirt_size === "L";
-});
+const largeShirts = runners.filter(runner => runner.shirt_size === "L"); // Refactored for implicit return;
 console.log(largeShirts);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations into a ticketPriceTotal array and log the result
-const ticketPriceTotal = runners.reduce((total, runner) => {
-  return total + runner.donation;
-}, 0);
+const ticketPriceTotal = runners.reduce(
+  (total, runner) => total + runner.donation,
+  0
+); // Refactored for implicit return;
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
@@ -488,9 +487,7 @@ console.log(ticketPriceTotal);
 // Problem 1
 
 // The community center wants send a special thank you letter to the runners who represent a business that donated $100 or more. Create an array that includes only such runners.
-const bigSpenders = runners.filter(runner => {
-  return runner.donation > 99;
-});
+const bigSpenders = runners.filter(runner => runner.donation > 99); // Refactored for implicit return
 console.log(bigSpenders);
 
 // Problem 2
