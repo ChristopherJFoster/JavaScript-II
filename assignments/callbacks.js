@@ -72,8 +72,34 @@ contains("Walkman", items, function(result) {
 
 /* STRETCH PROBLEM */
 
+const someDuplicates = [
+  "Shovel Knight",
+  "Dark Souls",
+  "Dark Souls",
+  "Enter the Gungeon",
+  "Shovel Knight",
+  "SUPERHOT"
+];
+
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  const noDuplicates = [];
+  array.forEach((currentValue, index) => {
+    absent = true;
+    for (i = 0; i < noDuplicates.length; i++) {
+      if (currentValue === noDuplicates[i]) {
+        absent = false;
+      }
+    }
+    if (absent) {
+      noDuplicates.push(currentValue);
+    }
+  });
+  cb(noDuplicates);
 }
+
+removeDuplicates(someDuplicates, function(result) {
+  console.log(result); // expect [ 'Shovel Knight', 'Dark Souls', 'Enter the Gungeon', 'SUPERHOT' ]
+});
